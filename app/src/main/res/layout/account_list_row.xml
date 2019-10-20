@@ -1,0 +1,39 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="?android:attr/listPreferredItemHeight"
+    android:padding="6dip" >
+
+    <ImageView
+        android:id="@+id/accountImage"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_centerVertical="true"
+        />
+
+    <TextView
+        android:id="@+id/accountName"
+        android:text=""
+        android:textSize="14dp"
+        android:layout_marginTop="8dp"
+        android:textColor="@color/colorAccent"
+        android:maxLines="1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/accountImage"
+        android:layout_toEndOf="@+id/accountImage"
+        android:layout_marginLeft="12dp"
+        android:layout_marginStart="12dp" />
+
+    <TextView
+        android:id="@+id/accountEmail"
+        android:text=""
+        android:textSize="12sp"
+        android:maxLines="1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/accountName"
+        android:layout_alignLeft="@+id/accountName"
+        android:layout_alignStart="@+id/accountName" />
+
+</RelativeLayout>
