@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/fragment_university_details">
+
+        <TextView
+            android:id="@+id/titleUniversityName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#03A9F4"
+            android:layout_margin="5dp"
+            android:textSize="30sp"
+            android:gravity="bottom"/>
+
+        <TextView
+            android:id="@+id/universityAlphaTwoCode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#03A9F4"
+            android:layout_margin="5dp"
+            android:textSize="15sp"
+            android:gravity="bottom"/>
+
+        <TextView
+            android:id="@+id/universityCountry"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#03A9F4"
+            android:layout_margin="5dp"
+            android:textSize="15sp"
+            android:gravity="bottom"/>
+
+
+        <TextView
+            android:id="@+id/universityDomain"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#03A9F4"
+            android:layout_margin="5dp"
+            android:textSize="15sp"
+            android:gravity="bottom"/>
+
+        <TextView
+            android:id="@+id/universityStateProvince"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#03A9F4"
+            android:layout_margin="5dp"
+            android:textSize="15sp"
+            android:gravity="bottom"/>
+
+    <TextView
+        android:id="@+id/universityWebPage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#03A9F4"
+        android:layout_margin="5dp"
+        android:textSize="15sp"
+        android:gravity="bottom"/>
+
+</LinearLayout>
