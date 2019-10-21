@@ -7,17 +7,18 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.multidex.MultiDex;
 
 import android.content.Context;
-import android.content.SharedPreferences;
+import android.content.Intent;
 import android.os.Bundle;
-import android.text.Editable;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
+import com.firebase.ui.auth.AuthUI;
+
+
 
 public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
 
@@ -37,8 +38,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         bar = findViewById(R.id.navigation);
         bar.setVisibility(View.GONE);
 
-        BottomNavigationView navigation = findViewById(R.id.navigation);
-        navigation.setOnNavigationItemSelectedListener(this);
+        bar.setOnNavigationItemSelectedListener(this);
 
         Fragment fragment = new InputFragment();
         changeFragment(fragment);
@@ -96,4 +96,6 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
     public void setBarVisible() {
         bar.setVisibility(View.VISIBLE);
     }
+
+
 }

@@ -1,7 +1,9 @@
 package com.example.intro_android;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -51,7 +53,7 @@ public class InputFragment extends Fragment implements View.OnClickListener
 
     private GoogleSignInClient mGoogleSignInClient;
 
-    Toast toast;
+    private Toast toast;
 
     private Button button;
 
@@ -73,7 +75,7 @@ public class InputFragment extends Fragment implements View.OnClickListener
         toast.show();
 
 
-        button = (Button) inputView.findViewById(R.id.btn);
+        button = inputView.findViewById(R.id.btn);
 
         button.setOnClickListener(this);
 
@@ -141,6 +143,11 @@ public class InputFragment extends Fragment implements View.OnClickListener
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "signInWithCredential:success");
                             FirebaseUser user = mAuth.getCurrentUser();
+                            SharedPreferences preferences = getActivity().getSharedPreferences(
+                                    "OUR_PREFERENCES", Context.MODE_PRIVATE);
+                            preferences.edit().putString("name", user.getDisplayName()).apply();
+                            preferences.edit().putString("photo", user.getPhotoUrl().toString()).apply();
+                            preferences.edit().putString("email", user.getEmail()).apply();
 
                             if (task.getResult().getAdditionalUserInfo().isNewUser()){
                                 Map<String, String> parameters = new HashMap<>();
@@ -154,7 +161,7 @@ public class InputFragment extends Fragment implements View.OnClickListener
 
                                 DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
                                 databaseReference.child("users").setValue(parameters);
-                            };
+                            }
                             ((MainActivity)getActivity()).setBarVisible();
                             updateUI(user);
                         } else {
@@ -200,9 +207,9 @@ public class InputFragment extends Fragment implements View.OnClickListener
         }
     }
     @VisibleForTesting
-    public ProgressDialog mProgressDialog;
+    private ProgressDialog mProgressDialog;
 
-    public void showProgressDialog() {
+    private void showProgressDialog() {
         if (mProgressDialog == null) {
             mProgressDialog = new ProgressDialog(this.getContext());
             mProgressDialog.setMessage("loading");
@@ -212,7 +219,7 @@ public class InputFragment extends Fragment implements View.OnClickListener
         mProgressDialog.show();
     }
 
-    public void hideProgressDialog() {
+    private void hideProgressDialog() {
         if (mProgressDialog != null && mProgressDialog.isShowing()) {
             mProgressDialog.dismiss();
         }

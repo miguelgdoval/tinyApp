@@ -26,20 +26,20 @@ public class OutputFragment extends Fragment {
 
     private TextView mTextMessage;
 
-    ListView accountsList;
+    private ListView accountsList;
 
 
     @Override
     public View onCreateView(LayoutInflater inflater,  ViewGroup container, Bundle savedInstanceState) {
         final View outputView = inflater.inflate(R.layout.output_fragment, null);
 
-        Bundle bundle = getArguments();
-        String text = "A";
-        if (bundle != null) {
-            text = bundle.getString("value");
-        }
+        getListFromFirebase(outputView);
 
 
+        return outputView;
+    }
+
+    private void getListFromFirebase(final View outputView) {
         FirebaseFirestore db = FirebaseFirestore.getInstance();
 
         db.collection("users").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
@@ -57,7 +57,7 @@ public class OutputFragment extends Fragment {
                         list.add(user);
 
                     }
-                    accountsList = (ListView) outputView.findViewById( R.id.accountsList);
+                    accountsList =  outputView.findViewById( R.id.accountsList);
                     accountsList.setAdapter(new UserListAdapter(getContext(), list) );
                     Log.d(TAG, list.toString());
                 } else {
@@ -65,10 +65,5 @@ public class OutputFragment extends Fragment {
                 }
             }
         });
-
-
-
-
-        return outputView;
     }
 }
