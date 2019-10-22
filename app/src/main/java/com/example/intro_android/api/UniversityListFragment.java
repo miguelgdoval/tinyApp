@@ -21,10 +21,15 @@ import com.example.intro_android.R;
 
 public class UniversityListFragment extends Fragment {
 
+    OnClickDetails mCallback;
     GridView grid;
     private TextView mTextMessage;
 
     private List<University> universitiesList;
+
+    public void setOnUniversityDetailsListener(OnClickDetails callback) {
+        this.mCallback = callback;
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -41,12 +46,17 @@ public class UniversityListFragment extends Fragment {
         grid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                ((MainActivity)getActivity()).onUniversitySelected(universitiesView, position);
+                mCallback.onUniversitySelected(universitiesView, position);
             }
         });
 
         mTextMessage = (TextView) universitiesView.findViewById(R.id.message);
         return universitiesView;
     }
+
+    public interface OnClickDetails{
+        void onUniversitySelected(View view, int position);
+    }
+
 }
 

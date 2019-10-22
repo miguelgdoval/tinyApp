@@ -25,6 +25,7 @@ import java.util.List;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class University implements Serializable, Parcelable {
 
+    private int id;
     @JsonProperty("name")
     private String name;
     @JsonProperty("alpha_two_code")
@@ -38,6 +39,13 @@ public class University implements Serializable, Parcelable {
     @JsonProperty("state-province")
     private String stateProvince;
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;

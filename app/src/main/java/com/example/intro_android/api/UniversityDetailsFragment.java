@@ -1,9 +1,14 @@
 package com.example.intro_android.api;
 
+import android.annotation.SuppressLint;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
@@ -15,7 +20,24 @@ import com.example.intro_android.R;
 public class UniversityDetailsFragment extends Fragment {
 
     private University university;
+    private OnUniversityFavouriteListener callback;
+    private onGetUniversityFavouriteListener callbackFav;
+    private Boolean isUniversityFavourite;
 
+    public void setOnUniversityFavouriteListener(OnUniversityFavouriteListener callback, onGetUniversityFavouriteListener callbackFav) {
+        this.callback = callback;
+        this.callbackFav = callbackFav;
+    }
+
+    public interface OnUniversityFavouriteListener{
+        void onFavouriteClicked(University university, Boolean addFavourite);
+    }
+
+    public interface onGetUniversityFavouriteListener{
+        Boolean onUniversityFavourite(University university);
+    }
+
+    @SuppressLint("NewApi")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -52,6 +74,42 @@ public class UniversityDetailsFragment extends Fragment {
             TextView webPageText = (TextView) view.findViewById(R.id.universityWebPage);
             webPageText.setText(android.text.TextUtils.concat("Web Page: ",university.getWebPages().get(0)));
         }
+
+
+        final Button favouriteButton = view.findViewById(R.id.favButton);
+        isUniversityFavourite = callbackFav.onUniversityFavourite(university);
+
+        int color = Color.parseColor("#FAF9F8");
+        if (isUniversityFavourite){
+            color = Color.parseColor("#ff0000");
+        }
+
+        //favouriteButton.setBackgroundColor(color);
+        favouriteButton.getBackground().setColorFilter(color, PorterDuff.Mode.MULTIPLY);
+        favouriteButton.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                int color;
+                isUniversityFavourite = callbackFav.onUniversityFavourite(university);
+
+                if (isUniversityFavourite){
+                    color = Color.parseColor("#FAF9F8");
+                    callback.onFavouriteClicked(university, false);
+                    //favouriteButton.setBackgroundColor(color);
+                    favouriteButton.getBackground().setColorFilter(color, PorterDuff.Mode.MULTIPLY);
+                }
+                else{
+                    color = Color.parseColor("#ff0000");
+                    callback.onFavouriteClicked(university, true);
+                    //favouriteButton.setBackgroundColor(color);
+                    favouriteButton.getBackground().setColorFilter(color, PorterDuff.Mode.MULTIPLY);
+                }
+                //favouriteButton.setBackgroundColor(color);
+                favouriteButton.getBackground().setColorFilter(color, PorterDuff.Mode.MULTIPLY);
+            }
+        });
 
         return view;
     }
