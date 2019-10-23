@@ -114,10 +114,10 @@ public class MainActivity extends AppCompatActivity
     public void onFavouriteClicked(University university, Boolean addFavourite) {
         if (addFavourite){
             favouritesListAdapter.addItem(university);
-            Toast.makeText(this, "Recipe added to favourites", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "University added to favourites", Toast.LENGTH_SHORT).show();
         } else{
             favouritesListAdapter.removeItemByUniversity(university);
-            Toast.makeText(this, "Recipe removed from favourites", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "University removed from favourites", Toast.LENGTH_SHORT).show();
         }
     }
 
