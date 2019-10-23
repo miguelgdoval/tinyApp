@@ -68,6 +68,12 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
 
         switch (item.getItemId()) {
             case R.id.navigation_home:
+                //fragment = new OutputFragment();
+                break;
+            case R.id.navigation_favourites:
+                //fragment = new ProfileFragment();
+                break;
+            case R.id.navigation_users:
                 fragment = new OutputFragment();
                 break;
 

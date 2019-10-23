@@ -3,11 +3,20 @@
 
     <item
         android:id="@+id/navigation_home"
-        android:title="HOME" />
-
+        android:title="HOME"
+        />
+    <item
+        android:id="@+id/navigation_favourites"
+        android:title="FAVOURITES"
+        />
+    <item
+        android:id="@+id/navigation_users"
+        android:title="USERS"
+        />
 
     <item
         android:id="@+id/navigation_profile"
-        android:title="PROFILE" />
+        android:title="PROFILE"
+        />
 
 </menu>

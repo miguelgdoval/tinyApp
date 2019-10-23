@@ -33,6 +33,7 @@ public class ProfileFragment extends Fragment implements View.OnClickListener{
         Button signOutButton = profileView.findViewById(R.id.signOutButton);
         signOutButton.setOnClickListener(this);
 
+        //CÓDIGO SHARED_PREFERENCES
         SharedPreferences preferences = getActivity().getSharedPreferences(
                 "OUR_PREFERENCES", Context.MODE_PRIVATE);
         String email = preferences.getString("email", "");
@@ -53,6 +54,7 @@ public class ProfileFragment extends Fragment implements View.OnClickListener{
             Picasso.get().load(photo).into(profileImage);
         }
 
+        //CÓDIGO FIREBASE USER
         /*TextView textView = profileView.findViewById(R.id.userEmail);
         textView.setText(currentFirebaseUser.getEmail());
 
