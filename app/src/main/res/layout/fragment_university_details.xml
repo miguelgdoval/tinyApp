@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/fragment_university_details">
+
+        <TextView
+            android:id="@+id/titleUniversityName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorAccent"
+            android:layout_margin="5dp"
+            android:textSize="30sp"
+            android:gravity="bottom"/>
+
+        <TextView
+            android:id="@+id/universityAlphaTwoCode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:textSize="15sp"
+            android:gravity="bottom"/>
+
+        <TextView
+            android:id="@+id/universityCountry"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:textSize="15sp"
+            android:gravity="bottom"/>
+
+
+        <TextView
+            android:id="@+id/universityDomain"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:textSize="15sp"
+            android:gravity="bottom"/>
+
+        <TextView
+            android:id="@+id/universityStateProvince"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:textSize="15sp"
+            android:gravity="bottom"/>
+
+    <TextView
+        android:id="@+id/universityWebPage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:textSize="15sp"
+        android:gravity="bottom"/>
+
+        <Button
+            android:id="@+id/favButton"
+            android:text="LIKE"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:onClick="addToFavourites"
+            app:backgroundTint="#D9DCE0"
+            app:backgroundTintMode="src_in"
+            app:borderWidth="0dp"
+            app:elevation="0dp"
+            app:maxImageSize="35dp" />
+
+</LinearLayout>

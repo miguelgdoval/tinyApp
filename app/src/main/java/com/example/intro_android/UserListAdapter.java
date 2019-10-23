@@ -1,24 +1,15 @@
 package com.example.intro_android;
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
-
-import androidx.annotation.NonNull;
 
 import com.squareup.picasso.Picasso;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.List;
 
 public class UserListAdapter extends ArrayAdapter<User> {
@@ -38,23 +29,19 @@ public class UserListAdapter extends ArrayAdapter<User> {
         LayoutInflater vi = (LayoutInflater)getContext().getSystemService(inflater);
         convertView = vi.inflate(R.layout.account_list_row, parent, false);
 
-
         // User object
         User = getItem(position);
 
-
-        //
-        TextView accountEmail = (TextView) convertView.findViewById(R.id.accountEmail);
+        TextView accountEmail = convertView.findViewById(R.id.accountEmail);
         accountEmail.setText(User.getEmail());
 
-        TextView accountName = (TextView) convertView.findViewById(R.id.accountName);
+        TextView accountName = convertView.findViewById(R.id.accountName);
         accountName.setText(User.getName());
 
         // show image
-        img = (ImageView)convertView.findViewById(R.id.accountImage);
+        img = convertView.findViewById(R.id.accountImage);
 
         Picasso.get().load(User.getUrl()).into(img);
-
 
         return convertView;
     }

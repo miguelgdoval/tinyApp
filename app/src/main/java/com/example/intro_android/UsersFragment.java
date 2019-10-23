@@ -22,9 +22,7 @@ import java.util.List;
 
 import static androidx.constraintlayout.widget.Constraints.TAG;
 
-public class OutputFragment extends Fragment {
-
-    private TextView mTextMessage;
+public class UsersFragment extends Fragment {
 
     private ListView accountsList;
 
@@ -34,7 +32,6 @@ public class OutputFragment extends Fragment {
         final View outputView = inflater.inflate(R.layout.output_fragment, null);
 
         getListFromFirebase(outputView);
-
 
         return outputView;
     }

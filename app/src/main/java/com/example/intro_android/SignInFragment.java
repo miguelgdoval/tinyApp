@@ -9,7 +9,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -26,7 +25,6 @@ import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
@@ -40,7 +38,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import java.util.HashMap;
 import java.util.Map;
 
-public class InputFragment extends Fragment implements View.OnClickListener
+public class SignInFragment extends Fragment implements View.OnClickListener
 {
 
     private static final String TAG = "GoogleActivity";
@@ -57,10 +55,6 @@ public class InputFragment extends Fragment implements View.OnClickListener
     private Toast toast;
 
     private SignInButton button;
-
-    private TextInputLayout textInputLayout;
-
-    private EditText textInputEditText;
 
     private View inputView;
 

@@ -23,8 +23,7 @@ import com.squareup.picasso.Picasso;
 
 public class ProfileFragment extends Fragment implements View.OnClickListener{
 
-    FirebaseUser currentFirebaseUser = FirebaseAuth.getInstance().getCurrentUser() ;
-
+    FirebaseUser currentFirebaseUser = FirebaseAuth.getInstance().getCurrentUser();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -63,9 +62,6 @@ public class ProfileFragment extends Fragment implements View.OnClickListener{
         ImageView profileImage = profileView.findViewById(R.id.profile_image);
         Picasso.get().load(currentFirebaseUser.getPhotoUrl()).into(profileImage);
 */
-
-
-
         return profileView;
     }
 
@@ -84,14 +80,10 @@ public class ProfileFragment extends Fragment implements View.OnClickListener{
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     public void onComplete(@NonNull Task<Void> task) {
                         // user is now signed out
-
                         Intent main = new Intent(getActivity(), MainActivity.class);
                         main.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         startActivity(main);
-
-
                     }
                 });
     }
-
 }
